@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BotEngine — پلتفرم ساخت ربات VPN فروشگاهی تلگرام. در کمتر از ۵ دقیقه ربات حرفه‌ای برای فروش VPN بساز. پشتیبانی از Marzban، 3X-UI، WireGuard، Hiddify، PasarGuard." />
+  <meta name="keywords" content="ربات VPN تلگرام, فروش VPN ربات, بات VPN, مرزبان, 3X-UI, WireGuard, Hiddify, ربات فروشگاهی تلگرام, BotEngine" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://botengine.ir/" />
+  <meta property="og:title" content="BotEngine | ربات VPN فروشگاهی بساز" />
+  <meta property="og:description" content="با BotEngine در کمتر از ۵ دقیقه ربات تلگرام خودت رو برای فروش VPN راه بنداز." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BotEngine | ربات VPN فروشگاهی بساز" />
+  <meta name="twitter:description" content="با BotEngine در کمتر از ۵ دقیقه ربات تلگرام خودت رو برای فروش VPN راه بنداز." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text y='.9em' font-size='62' x='50%' text-anchor='middle' dominant-baseline='auto' dy='20'>⚡</text></svg>" />
+  <title>BotEngine | پلتفرم ساخت ربات VPN فروشگاهی تلگرام</title>
+  <link rel="canonical" href="https://botengine.ir/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BotEngine","description":"پلتفرم ساخت ربات VPN فروشگاهی تلگرام","applicationCategory":"BusinessApplication","url":"https://botengine.ir","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"۷ روز تست رایگان"},"operatingSystem":"Telegram","inLanguage":"fa"}</script>
+
+  <style>
+  /* ── Variables ───────────────────────────── */
+  :root {
+    --black: #000;
+    --bg: #080808;
+    --s0: #0e0e0e;
+    --s1: #141414;
+    --s2: #1c1c1c;
+    --border: #222;
+    --border-l: #2a2a2a;
+    --blue: #2563eb;
+    --blue-l: #3b82f6;
+    --blue-xl: #60a5fa;
+    --green: #22c55e;
+    --white: #fff;
+    --g1: #a3a3a3;
+    --g2: #525252;
+    --g3: #2e2e2e;
+    --t: .28s cubic-bezier(.4,0,.2,1);
+    --r: 14px;
+    --rl: 20px;
+  }
+
+  /* ── Reset ───────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Vazirmatn', system-ui, sans-serif; background: var(--black); color: var(--white); line-height: 1.7; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; border: none; outline: none; cursor: pointer; background: none; }
+  img { display: block; max-width: 100%; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  ::selection { background: rgba(37,99,235,.35); }
+
+  /* ── Utilities ───────────────────────────── */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--t), transform .6s var(--t); }
+  .reveal.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: .08s; }
+  .d2 { transition-delay: .16s; }
+  .d3 { transition-delay: .24s; }
+  .d4 { transition-delay: .32s; }
+
+  /* ── Navbar ──────────────────────────────── */
+  .nav {
+    position: fixed; top: 0; inset-inline: 0; z-index: 100;
+    height: 64px; display: flex; align-items: center;
+    padding: 0 28px;
+    transition: background var(--t), border-color var(--t);
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled { background: rgba(0,0,0,.88); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom-color: var(--border); }
+  .nav-inner { max-width: 1160px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 1.15rem; }
+  .nav-logo-mark {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: var(--blue); display: grid; place-items: center;
+  }
+  .nav-logo-mark svg { width: 18px; height: 18px; color: #fff; }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { font-size: .88rem; font-weight: 500; color: var(--g1); transition: color var(--t); }
+  .nav-links a:hover { color: var(--white); }
+  .nav-btn {
+    padding: 8px 20px; border-radius: 8px;
+    background: var(--blue); color: #fff; font-size: .88rem; font-weight: 700;
+    transition: background var(--t), box-shadow var(--t);
+  }
+  .nav-btn:hover { background: var(--blue-l); box-shadow: 0 0 20px rgba(37,99,235,.4); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--g1); border-radius: 2px; display: block; transition: var(--t); }
+
+  /* ── Hero ────────────────────────────────── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 120px 28px 80px; position: relative; overflow: hidden;
+  }
+
+  /* Subtle grid bg */
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: .25;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 100%);
+  }
+
+  /* Blue glow top center */
+  .hero::after {
+    content: ''; position: absolute;
+    width: 600px; height: 300px;
+    top: 0; left: 50%; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(37,99,235,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1160px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center; position: relative; z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--blue-xl); margin-bottom: 24px;
+  }
+  .hero-eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--blue-xl); display: block; }
+
+  .hero-h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 22px; }
+  .hero-h1 em { font-style: normal; color: var(--blue-xl); }
+
+  .hero-p { font-size: 1rem; color: var(--g1); margin-bottom: 36px; max-width: 460px; line-height: 1.8; }
+
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-main {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 26px; border-radius: 10px;
+    background: var(--blue); color: #fff; font-weight: 700; font-size: .95rem;
+    transition: background var(--t), box-shadow var(--t), transform var(--t);
+  }
+  .btn-main:hover { background: var(--blue-l); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,99,235,.45); }
+  .btn-main svg { width: 17px; height: 17px; }
+  .btn-sec {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 22px; border-radius: 10px;
+    border: 1px solid var(--border-l); color: var(--g1); font-weight: 600; font-size: .95rem;
+    transition: border-color var(--t), color var(--t);
+  }
+  .btn-sec:hover { border-color: #444; color: var(--white); }
+
+  /* Dashboard mockup */
+  .dash-wrap { position: relative; }
+  .dash {
+    background: var(--s0); border: 1px solid var(--border-l);
+    border-radius: var(--rl); overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.04);
+    animation: float-dash 7s ease-in-out infinite;
+  }
+  @keyframes float-dash { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .dash-bar {
+    background: var(--s1); padding: 12px 18px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dash-dots { display: flex; gap: 6px; }
+  .dash-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dash-bar-title { font-size: .72rem; color: var(--g2); font-weight: 600; margin-right: auto; }
+  .dash-body { padding: 20px; }
+  .dash-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 16px; }
+  .dash-kpi { background: var(--s2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .dash-kpi-val { font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; }
+  .dash-kpi-lbl { font-size: .65rem; color: var(--g2); font-weight: 500; }
+  .dash-kpi-val.green { color: var(--green); }
+  .dash-kpi-val.blue { color: var(--blue-xl); }
+  .dash-section-title { font-size: .7rem; font-weight: 700; color: var(--g2); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+  .dash-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .dash-panel { background: var(--s2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 8px; }
+  .dash-panel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; box-shadow: 0 0 6px var(--green); }
+  .dash-panel-name { font-size: .72rem; font-weight: 700; }
+  .dash-panel-sub { font-size: .6rem; color: var(--g2); }
+  .dash-bar-chart { display: flex; align-items: flex-end; gap: 5px; height: 52px; }
+  .dash-bar-col { flex: 1; border-radius: 4px 4px 0 0; background: var(--blue); opacity: .6; transition: opacity var(--t); }
+  .dash-bar-col:hover { opacity: 1; }
+  .dash-bar-col.hi { background: var(--blue-l); opacity: 1; }
+
+  /* Floating pill notifications */
+  .notif {
+    position: absolute;
+    background: var(--s1); border: 1px solid var(--border-l);
+    border-radius: 100px; padding: 8px 14px;
+    font-size: .72rem; font-weight: 600;
+    display: flex; align-items: center; gap: 7px;
+    box-shadow: 0 8px 28px rgba(0,0,0,.5);
+    white-space: nowrap;
+  }
+  .notif-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .notif-1 { top: -14px; right: 20px; animation: notif-a 5s ease-in-out infinite; }
+  .notif-2 { bottom: -14px; left: 20px; animation: notif-a 6s ease-in-out infinite reverse; animation-delay: -2s; }
+  @keyframes notif-a { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+  /* ── Marquee ─────────────────────────────── */
+  .marquee-section {
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    background: var(--s0); padding: 18px 0; overflow: hidden;
+    position: relative;
+  }
+  .marquee-section::before, .marquee-section::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+  }
+  .marquee-section::before { right: 0; background: linear-gradient(90deg, transparent, var(--s0)); }
+  .marquee-section::after  { left: 0;  background: linear-gradient(270deg, transparent, var(--s0)); }
+  .marquee-track {
+    display: flex; gap: 0;
+    animation: marquee-run 30s linear infinite;
+    width: max-content;
+  }
+  @keyframes marquee-run { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .marquee-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 32px; font-size: .82rem; font-weight: 600; color: var(--g2);
+    white-space: nowrap;
+  }
+  .marquee-item span { font-size: 1rem; }
+  .marquee-sep { color: var(--g3); font-size: .6rem; }
+  .mq-logo { width: 22px; height: 22px; object-fit: contain; border-radius: 5px; flex-shrink: 0; filter: brightness(.9) saturate(.9); }
+  .panel-mini-logo { width: 22px; height: 22px; object-fit: contain; border-radius: 5px; flex-shrink: 0; }
+
+  /* ── Stats ───────────────────────────────── */
+  .stats-section { padding: 90px 28px; }
+  .stats-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--rl); overflow: hidden; }
+  .stat-block { background: var(--s0); padding: 40px; }
+  .stat-num { font-size: clamp(2.4rem,4vw,3.4rem); font-weight: 900; line-height: 1; letter-spacing: -.03em; background: linear-gradient(180deg,#fff,var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .stat-unit { font-size: .85rem; color: var(--g2); margin-top: 8px; }
+
+  /* ── Bento Features ──────────────────────── */
+  .bento-section { padding: 90px 28px; }
+  .bento-header { margin-bottom: 48px; }
+  .section-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-xl); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-eyebrow::before { content:''; width:18px; height:1.5px; background:var(--blue-xl); display:block; }
+  .section-h { font-size: clamp(1.7rem,3vw,2.4rem); font-weight: 800; letter-spacing: -.02em; }
+  .section-h em { font-style:normal; color:var(--blue-xl); }
+
+  .bento { display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: 240px; gap: 12px; }
+  .bento-card {
+    background: var(--s0); border: 1px solid var(--border);
+    border-radius: var(--rl); padding: 28px;
+    position: relative; overflow: hidden;
+    transition: border-color var(--t), transform var(--t);
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .bento-card:hover { border-color: #333; transform: translateY(-3px); }
+  .bento-card::before {
+    content: ''; position: absolute; inset: 0;
+    opacity: 0; transition: opacity var(--t);
+    background: radial-gradient(circle at 30% 30%, rgba(37,99,235,.06), transparent 60%);
+  }
+  .bento-card:hover::before { opacity: 1; }
+  .bento-wide { grid-column: span 2; }
+  .bento-tall { grid-row: span 2; }
+
+  .bento-icon { font-size: 2rem; margin-bottom: auto; }
+  .bento-num {
+    font-size: 4rem; font-weight: 900; line-height: 1; letter-spacing: -.04em;
+    color: transparent; -webkit-text-stroke: 1px var(--g3);
+    position: absolute; top: 16px; left: 24px; font-variant-numeric: tabular-nums;
+    pointer-events: none;
+  }
+  .bento-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+  .bento-desc { font-size: .83rem; color: var(--g1); line-height: 1.65; }
+
+  /* Special bento card variants */
+  .bento-card.accent { background: var(--blue); border-color: var(--blue); }
+  .bento-card.accent .bento-desc { color: rgba(255,255,255,.7); }
+  .bento-card.accent::before { background: radial-gradient(circle at 80% 80%, rgba(255,255,255,.08), transparent 60%); opacity:1; }
+
+  /* Delivery visual inside tall card */
+  .delivery-visual { position: absolute; top: 28px; left: 0; right: 0; padding: 0 28px; }
+  .del-step { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .del-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink:0; }
+  .del-line { flex:1; height:1px; background: var(--border-l); }
+  .del-label { font-size: .7rem; font-weight: 600; color: var(--g2); white-space: nowrap; }
+  .del-step.done .del-dot { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .del-step.done .del-label { color: var(--green); }
+  .del-step.active .del-dot { background: var(--blue-xl); box-shadow: 0 0 6px var(--blue-xl); animation: blink 1.2s ease-in-out infinite; }
+  .del-step.active .del-label { color: var(--blue-xl); }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  /* Panel list inside bento */
+  .panel-mini-list { position: absolute; top: 28px; right: 28px; left: 28px; }
+  .panel-mini { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .panel-mini-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .panel-mini-name { font-size: .72rem; font-weight: 700; color: var(--white); flex: 1; }
+  .panel-mini-badge { font-size: .6rem; background: rgba(34,197,94,.12); color: var(--green); border-radius: 4px; padding: 1px 6px; font-weight: 700; }
+
+  /* ── How it works ────────────────────────── */
+  .how-section { padding: 90px 28px; }
+  .how-inner { max-width: 1160px; margin: 0 auto; }
+  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 56px; position: relative; }
+  .steps::before {
+    content: ''; position: absolute; top: 20px; right: calc(16.6% + 20px); left: calc(16.6% + 20px);
+    height: 1px; background: linear-gradient(90deg, var(--blue) 0%, var(--border) 50%, var(--border) 100%);
+  }
+  .step { padding: 0 24px; }
+  .step-num {
+    width: 40px; height: 40px; border-radius: 50%;
+    font-size: .88rem; font-weight: 900; display: grid; place-items: center;
+    margin-bottom: 20px; position: relative; z-index: 1;
+    border: 1px solid var(--border-l); background: var(--s0); color: var(--g1);
+  }
+  .step:first-child .step-num { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 0 20px rgba(37,99,235,.4); }
+  .step-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .step-desc { font-size: .84rem; color: var(--g1); line-height: 1.7; }
+
+  /* ── Pricing ─────────────────────────────── */
+  .pricing-section { padding: 90px 28px; }
+  .pricing-inner { max-width: 1160px; margin: 0 auto; }
+
+  .dur-tabs {
+    display: inline-flex; gap: 4px;
+    background: var(--s0); border: 1px solid var(--border);
+    border-radius: 10px; padding: 4px; margin-bottom: 44px;
+    flex-wrap: wrap;
+  }
+  .dur-tab {
+    padding: 8px 18px; border-radius: 7px;
+    font-size: .83rem; font-weight: 600; color: var(--g2);
+    cursor: pointer; transition: var(--t);
+    position: relative; white-space: nowrap; font-family: inherit;
+  }
+  .dur-tab.on { background: var(--blue); color: #fff; box-shadow: 0 2px 10px rgba(37,99,235,.35); }
+  .dur-tab:hover:not(.on) { color: var(--white); }
+  .dur-save {
+    position: absolute; top: -8px; right: 0;
+    background: var(--green); color: #fff;
+    font-size: .55rem; font-weight: 800; padding: 1px 5px; border-radius: 100px;
+  }
+
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .price-box {
+    background: var(--s0); border: 1px solid var(--border-l);
+    border-radius: var(--rl); padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .price-box-lbl { font-size: .7rem; font-weight: 700; color: var(--g2); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 12px; }
+  .price-big { font-size: 3.2rem; font-weight: 900; line-height: 1; margin-bottom: 6px; letter-spacing: -.03em; }
+  .price-big.free { color: var(--green); font-size: 2.4rem; }
+  .price-pm { font-size: .82rem; color: var(--g2); margin-bottom: 14px; }
+  .price-save { display: inline-block; background: rgba(34,197,94,.1); color: var(--green); border: 1px solid rgba(34,197,94,.18); border-radius: 100px; font-size: .72rem; font-weight: 700; padding: 3px 12px; margin-bottom: 20px; }
+  .price-div { height: 1px; background: var(--border); margin: 18px 0; }
+  .price-perk { display: flex; align-items: flex-start; gap: 9px; font-size: .83rem; color: var(--g1); margin-bottom: 8px; }
+  .price-perk .pi { flex-shrink: 0; margin-top: 1px; }
+  .price-perk.dim { color: var(--g2); }
+
+  .addons-box { display: flex; flex-direction: column; gap: 10px; }
+  .addons-head { margin-bottom: 6px; }
+  .addons-h { font-size: .92rem; font-weight: 700; margin-bottom: 3px; }
+  .addons-s { font-size: .78rem; color: var(--g2); }
+  .addon {
+    background: var(--s0); border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 13px 15px;
+    display: flex; align-items: center; gap: 11px;
+    cursor: pointer; transition: border-color var(--t), background var(--t);
+    user-select: none;
+  }
+  .addon.on { border-color: var(--blue-l); background: rgba(37,99,235,.06); }
+  .addon-chk {
+    width: 19px; height: 19px; border-radius: 5px; flex-shrink: 0;
+    border: 1.5px solid var(--g3); display: grid; place-items: center; transition: var(--t);
+  }
+  .addon.on .addon-chk { background: var(--blue); border-color: var(--blue); }
+  .addon-svg { opacity: 0; transition: opacity var(--t); }
+  .addon.on .addon-svg { opacity: 1; }
+  .addon-body { flex: 1; min-width: 0; }
+  .addon-n { font-size: .86rem; font-weight: 600; margin-bottom: 1px; }
+  .addon-d { font-size: .72rem; color: var(--g2); }
+  .addon-tag { font-size: .74rem; font-weight: 700; color: var(--blue-xl); background: rgba(37,99,235,.1); border-radius: 5px; padding: 2px 8px; flex-shrink: 0; }
+
+  .total-row {
+    background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(37,99,235,.04));
+    border: 1.5px solid rgba(37,99,235,.35); border-radius: 10px;
+    padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .total-lbl { font-size: .75rem; color: var(--g2); margin-bottom: 3px; }
+  .total-val { font-size: 1.6rem; font-weight: 900; letter-spacing: -.02em; }
+  .btn-start {
+    padding: 11px 22px; border-radius: 9px;
+    background: var(--blue); color: #fff; font-weight: 700; font-size: .88rem;
+    transition: background var(--t), box-shadow var(--t), transform var(--t);
+    white-space: nowrap; display: inline-block;
+  }
+  .btn-start:hover { background: var(--blue-l); transform: translateY(-2px); box-shadow: 0 6px 22px rgba(37,99,235,.4); }
+
+  @media (max-width: 640px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .total-row { flex-direction: column; text-align: center; }
+    .btn-start { width: 100%; text-align: center; }
+    .dur-tabs { width: 100%; justify-content: center; border-radius: var(--r); }
+  }
+
+  /* ── FAQ ─────────────────────────────────── */
+  .faq-section { padding: 90px 28px; border-top: 1px solid var(--border); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq-list { margin-top: 44px; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 0; font-size: .95rem; font-weight: 600; color: var(--white);
+    cursor: pointer; text-align: right; gap: 14px; background: none;
+  }
+  .faq-q:hover { color: var(--blue-xl); }
+  .faq-plus {
+    width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+    border: 1px solid var(--border-l); display: grid; place-items: center;
+    font-size: .82rem; color: var(--g2); transition: transform var(--t), border-color var(--t), color var(--t);
+  }
+  .faq-item.open .faq-plus { transform: rotate(45deg); border-color: var(--blue); color: var(--blue-xl); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .38s var(--t); }
+  .faq-item.open .faq-a { max-height: 240px; }
+  .faq-a-inner { padding-bottom: 20px; font-size: .88rem; color: var(--g1); line-height: 1.8; }
+
+  /* ── CTA ─────────────────────────────────── */
+  .cta-section {
+    padding: 120px 28px; text-align: center;
+    border-top: 1px solid var(--border); position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(37,99,235,.1), transparent);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .cta-h { font-size: clamp(2rem,4vw,3rem); font-weight: 900; letter-spacing: -.02em; margin-bottom: 18px; line-height: 1.15; }
+  .cta-h em { font-style: normal; color: var(--blue-xl); }
+  .cta-p { font-size: 1rem; color: var(--g1); margin-bottom: 36px; }
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── Footer ──────────────────────────────── */
+  .footer { border-top: 1px solid var(--border); padding: 56px 28px 32px; }
+  .footer-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 1.05rem; margin-bottom: 12px; }
+  .footer-logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--blue); display: grid; place-items: center; }
+  .footer-logo-mark svg { width: 15px; height: 15px; color: #fff; }
+  .footer-tag { font-size: .83rem; color: var(--g2); line-height: 1.7; }
+  .footer-col h4 { font-size: .82rem; font-weight: 700; margin-bottom: 14px; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 9px; }
+  .footer-col a { font-size: .82rem; color: var(--g2); transition: color var(--t); }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { max-width: 1160px; margin: 0 auto; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: .78rem; color: var(--g3); flex-wrap: wrap; gap: 8px; }
+
+  /* ── Responsive ──────────────────────────── */
+  @media (max-width: 960px) {
+    .bento { grid-template-columns: 1fr 1fr; }
+    .bento-wide { grid-column: span 2; }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-btn { display: none; }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .dash-wrap { order: -1; }
+    .notif { display: none; }
+    .stats-inner { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .steps::before { display: none; }
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 540px) {
+    .bento { grid-template-columns: 1fr; }
+    .bento-wide { grid-column: span 1; }
+    .bento-tall { grid-row: span 1; }
+  }
+
+  /* Mobile nav */
+  .mob-nav {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,.96); backdrop-filter: blur(16px);
+    flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+  }
+  .mob-nav.open { display: flex; }
+  .mob-nav a { font-size: 1.3rem; font-weight: 700; color: var(--g1); transition: color var(--t); }
+  .mob-nav a:hover { color: var(--white); }
+  .mob-close { position: absolute; top: 22px; left: 24px; font-size: 1.5rem; color: var(--g2); }
+  </style>
+</head>
+
+<body>
+
+<!-- ── Navbar ──────────────────────────── -->
+<header>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        BotEngine
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">امکانات</a></li>
+        <li><a href="#panels">پنل‌ها</a></li>
+        <li><a href="#how">راه‌اندازی</a></li>
+        <li><a href="#pricing">قیمت‌ها</a></li>
+        <li><a href="#faq">سوالات</a></li>
+      </ul>
+      <a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" class="nav-btn">شروع رایگان</a>
+      <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+</header>
+
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#features" class="mob-lnk">امکانات</a>
+  <a href="#panels" class="mob-lnk">پنل‌ها</a>
+  <a href="#how" class="mob-lnk">راه‌اندازی</a>
+  <a href="#pricing" class="mob-lnk">قیمت‌ها</a>
+  <a href="#faq" class="mob-lnk">سوالات</a>
+  <a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" class="btn-main" style="margin-top:8px">شروع رایگان</a>
+</div>
+
+<main>
+
+<!-- ── Hero ────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero-inner container">
+    <div class="hero-text">
+      <div class="hero-eyebrow reveal">پلتفرم ساخت ربات VPN فروشگاهی</div>
+      <h1 class="hero-h1 reveal d1">
+        ربات VPN<br>
+        فروشگاهی‌ات رو<br>
+        <em>در ۵ دقیقه</em> بساز
+      </h1>
+      <p class="hero-p reveal d2">
+        بدون کدنویسی، بدون سرور اضافه. ربات تلگرام اختصاصی با تحویل خودکار اکانت، ۷ پنل VPN و ۵+ درگاه پرداخت.
+      </p>
+      <div class="hero-actions reveal d3">
+        <a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" class="btn-main">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          شروع رایگان — ۷ روز تست
+        </a>
+        <a href="#features" class="btn-sec">مشاهده امکانات ↓</a>
+      </div>
+    </div>
+
+    <div class="dash-wrap reveal d2">
+      <!-- Notifications -->
+      <div class="notif notif-1">
+        <div class="notif-dot" style="background:#22c55e"></div>
+        خرید موفق — ۱۵۰,۰۰۰ تومان
+      </div>
+      <div class="notif notif-2">
+        <div class="notif-dot" style="background:#3b82f6"></div>
+        اکانت تحویل داده شد ✓
+      </div>
+
+      <!-- Dashboard -->
+      <div class="dash" role="img" aria-label="داشبورد مدیریت BotEngine">
+        <div class="dash-bar">
+          <div class="dash-dots">
+            <div class="dash-dot" style="background:#ff5f57"></div>
+            <div class="dash-dot" style="background:#ffbd2e"></div>
+            <div class="dash-dot" style="background:#28ca41"></div>
+          </div>
+          <div class="dash-bar-title">BotEngine Dashboard</div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-kpis">
+            <div class="dash-kpi">
+              <div class="dash-kpi-val green">$247</div>
+              <div class="dash-kpi-lbl">درآمد امروز</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="dash-kpi-val blue">۱۲</div>
+              <div class="dash-kpi-lbl">کاربر جدید</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="dash-kpi-val">۸</div>
+              <div class="dash-kpi-lbl">تحویل خودکار</div>
+            </div>
+          </div>
+
+          <div class="dash-section-title">پنل‌های فعال</div>
+          <div class="dash-panels">
+            <div class="dash-panel">
+              <img src="marzban.png" style="width:18px;height:18px;object-fit:contain;border-radius:4px;flex-shrink:0" alt="Marzban">
+              <div><div class="dash-panel-name">Marzban</div><div class="dash-panel-sub">۱۲۴ اکانت</div></div>
+            </div>
+            <div class="dash-panel">
+              <img src="3x-ui.png" style="width:18px;height:18px;object-fit:contain;border-radius:4px;flex-shrink:0" alt="3X-UI">
+              <div><div class="dash-panel-name">3X-UI</div><div class="dash-panel-sub">۸۷ اکانت</div></div>
+            </div>
+          </div>
+
+          <div class="dash-section-title">فروش هفتگی</div>
+          <div class="dash-bar-chart">
+            <div class="dash-bar-col" style="height:35%"></div>
+            <div class="dash-bar-col" style="height:55%"></div>
+            <div class="dash-bar-col" style="height:42%"></div>
+            <div class="dash-bar-col" style="height:70%"></div>
+            <div class="dash-bar-col" style="height:48%"></div>
+            <div class="dash-bar-col hi" style="height:90%"></div>
+            <div class="dash-bar-col" style="height:65%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Marquee / Panels ─────────────────── -->
+<div class="marquee-section" id="panels" aria-label="پنل‌های پشتیبانی‌شده">
+  <div class="marquee-track" aria-hidden="true">
+    <!-- Duplicated for infinite loop -->
+    <div class="marquee-item"><img src="marzban.png" class="mq-logo" alt="Marzban"> Marzban <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><img src="3x-ui.png" class="mq-logo" alt="3X-UI"> 3X-UI <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><img src="wireguard.png" class="mq-logo" alt="WireGuard"> WireGuard Dashboard <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><img src="pasarguard.png" class="mq-logo" alt="PasarGuard"> PasarGuard <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><img src="hiddify.png" class="mq-logo" alt="Hiddify"> Hiddify <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>🔷</span> Rebecca <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>🟦</span> Nahan <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>💳</span> کارت به کارت <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>₿</span> Coinero <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>🏦</span> نوین‌پال <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>💰</span> زرین‌پال <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>⚡</span> ترونادو <span class="marquee-sep">✦</span></div>
+    <!-- Duplicate -->
+    <div class="marquee-item"><img src="marzban.png" class="mq-logo" alt="Marzban"> Marzban <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><img src="3x-ui.png" class="mq-logo" alt="3X-UI"> 3X-UI <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><img src="wireguard.png" class="mq-logo" alt="WireGuard"> WireGuard Dashboard <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><img src="pasarguard.png" class="mq-logo" alt="PasarGuard"> PasarGuard <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><img src="hiddify.png" class="mq-logo" alt="Hiddify"> Hiddify <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>🔷</span> Rebecca <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>🟦</span> Nahan <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>💳</span> کارت به کارت <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>₿</span> Coinero <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>🏦</span> نوین‌پال <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>💰</span> زرین‌پال <span class="marquee-sep">✦</span></div>
+    <div class="marquee-item"><span>⚡</span> ترونادو <span class="marquee-sep">✦</span></div>
+  </div>
+</div>
+
+<!-- ── Stats ────────────────────────────── -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-inner reveal">
+      <div class="stat-block">
+        <div class="stat-num" data-target="500" data-sfx="+">۰</div>
+        <div class="stat-unit">بات VPN فروشگاهی فعال</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num" data-target="25000" data-sfx="+">۰</div>
+        <div class="stat-unit">کاربر تلگرام در سراسر ایران</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num" data-target="100000" data-sfx="+">۰</div>
+        <div class="stat-unit">اکانت VPN تحویل‌داده‌شده</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Bento Features ────────────────────── -->
+<section class="bento-section" id="features">
+  <div class="container">
+    <div class="bento-header">
+      <div class="section-eyebrow reveal">امکانات</div>
+      <h2 class="section-h reveal d1">همه چیزی که برای<br><em>فروش VPN</em> نیاز داری</h2>
+    </div>
+
+    <div class="bento">
+      <!-- Card 1 — Wide, accent (blue) -->
+      <article class="bento-card accent bento-wide reveal">
+        <div class="bento-num" aria-hidden="true">01</div>
+        <div class="bento-icon">⚡</div>
+        <h3 class="bento-title">راه‌اندازی در ۵ دقیقه — بدون کدنویسی</h3>
+        <p class="bento-desc">توکن ربات تلگرامت رو وارد کن، پنل VPN رو وصل کن. همین. هیچ سرور اضافه‌ای نیاز نیست.</p>
+      </article>
+
+      <!-- Card 2 — Tall, panel list -->
+      <article class="bento-card bento-tall reveal d1" id="panels-card">
+        <div class="panel-mini-list" aria-hidden="true">
+          <div class="panel-mini"><img src="marzban.png" class="panel-mini-logo" alt="Marzban"><div class="panel-mini-name">Marzban</div><div class="panel-mini-badge">آنلاین</div></div>
+          <div class="panel-mini"><img src="3x-ui.png" class="panel-mini-logo" alt="3X-UI"><div class="panel-mini-name">3X-UI</div><div class="panel-mini-badge">آنلاین</div></div>
+          <div class="panel-mini"><img src="wireguard.png" class="panel-mini-logo" alt="WireGuard"><div class="panel-mini-name">WireGuard</div><div class="panel-mini-badge">آنلاین</div></div>
+          <div class="panel-mini"><img src="hiddify.png" class="panel-mini-logo" alt="Hiddify"><div class="panel-mini-name">Hiddify</div><div class="panel-mini-badge">آنلاین</div></div>
+          <div class="panel-mini"><img src="pasarguard.png" class="panel-mini-logo" alt="PasarGuard"><div class="panel-mini-name">PasarGuard</div><div class="panel-mini-badge">آنلاین</div></div>
+          <div class="panel-mini"><span style="font-size:1rem;line-height:1;flex-shrink:0">🔷</span><div class="panel-mini-name">Rebecca</div><div class="panel-mini-badge">آنلاین</div></div>
+          <div class="panel-mini"><span style="font-size:1rem;line-height:1;flex-shrink:0">🟦</span><div class="panel-mini-name">Nahan</div><div class="panel-mini-badge">آنلاین</div></div>
+        </div>
+        <div class="bento-num" aria-hidden="true">02</div>
+        <h3 class="bento-title">۷ پنل VPN پشتیبانی‌شده</h3>
+        <p class="bento-desc">چند پنل همزمان. در صورت خرابی پنل اول، به‌طور خودکار سوئیچ می‌کنه.</p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="bento-card reveal d2">
+        <div class="bento-num" aria-hidden="true">03</div>
+        <div class="bento-icon">💳</div>
+        <h3 class="bento-title">۵+ درگاه پرداخت</h3>
+        <p class="bento-desc">کارت به کارت، کریپتو، نوین‌پال، زرین‌پال و ترونادو.</p>
+      </article>
+
+      <!-- Card 4 — Delivery visual -->
+      <article class="bento-card reveal">
+        <div class="delivery-visual" aria-hidden="true">
+          <div class="del-step done">
+            <div class="del-dot"></div><div class="del-line"></div>
+            <div class="del-label">پرداخت تأیید شد</div>
+          </div>
+          <div class="del-step done">
+            <div class="del-dot"></div><div class="del-line"></div>
+            <div class="del-label">اکانت ساخته شد</div>
+          </div>
+          <div class="del-step active">
+            <div class="del-dot"></div><div class="del-line"></div>
+            <div class="del-label">ارسال به کاربر...</div>
+          </div>
+        </div>
+        <div class="bento-num" aria-hidden="true">04</div>
+        <h3 class="bento-title">تحویل فوری خودکار</h3>
+        <p class="bento-desc">از لحظه تأیید پرداخت تا دریافت اکانت کاربر — همه خودکار.</p>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="bento-card reveal d1">
+        <div class="bento-num" aria-hidden="true">05</div>
+        <div class="bento-icon">🛡️</div>
+        <h3 class="bento-title">مانیتورینگ پنل ۲۴/۷</h3>
+        <p class="bento-desc">هر ۵ دقیقه وضعیت پنل‌هات بررسی می‌شه. قطعی؟ فوری بهت پیام می‌ده.</p>
+      </article>
+
+      <!-- Card 6 — Wide -->
+      <article class="bento-card bento-wide reveal d2">
+        <div class="bento-num" aria-hidden="true">06</div>
+        <div class="bento-icon">📊</div>
+        <h3 class="bento-title">گزارش روزانه فروش + سیستم معرفی + قرعه‌کشی ماهانه</h3>
+        <p class="bento-desc">هر روز صبح گزارش کامل فروش، درآمد و کاربران جدیدت می‌رسه. سیستم معرفی رو فعال کن و قرعه‌کشی ماهانه برگزار کن تا کاربرا فعال بمونن.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── How it works ──────────────────────── -->
+<section class="how-section" id="how">
+  <div class="how-inner container">
+    <div class="section-eyebrow reveal">شروع</div>
+    <h2 class="section-h reveal d1">سه قدم تا <em>اولین فروش</em></h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">۱</div>
+        <h3 class="step-title">ربات رو استارت بزن</h3>
+        <p class="step-desc"><a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" style="color:var(--blue-xl);text-decoration:underline">@Botengin_bot</a> رو استارت بزن، ثبت‌نام کن و ربات فروشگاهی اختصاصیت رو تعریف کن.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-num">۲</div>
+        <h3 class="step-title">پنل و درگاه پرداخت وصل کن</h3>
+        <p class="step-desc">اطلاعات پنل VPN و درگاه پرداخت رو وارد کن. در کمتر از یک دقیقه تست می‌شه.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-num">۳</div>
+        <h3 class="step-title">شروع به فروش کن</h3>
+        <p class="step-desc">لینک ربات فروشگاهیت رو به مشتریانت بده. از همون لحظه درآمد ثابت داری.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing ───────────────────────────── -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner container">
+    <div class="section-eyebrow reveal">قیمت‌گذاری</div>
+    <h2 class="section-h reveal d1" style="margin-bottom:12px">شفاف، منصفانه، <em>بدون هزینه پنهان</em></h2>
+    <p style="font-size:.9rem;color:var(--g2);margin-bottom:44px" class="reveal d2">مدت بیشتر → نرخ ماهانه کمتر. پلن‌های ۶ ماهه و سالانه بدون واترمارک و تبلیغات.</p>
+
+    <div class="dur-tabs reveal d2" role="tablist">
+      <button class="dur-tab on" data-plan="trial" role="tab">۷ روزه</button>
+      <button class="dur-tab" data-plan="1m" role="tab">۱ ماهه</button>
+      <button class="dur-tab" data-plan="3m" role="tab">۳ ماهه <span class="dur-save">۷٪</span></button>
+      <button class="dur-tab" data-plan="6m" role="tab">۶ ماهه <span class="dur-save">۳۵٪</span></button>
+      <button class="dur-tab" data-plan="1y" role="tab">۱ ساله <span class="dur-save">۴۴٪</span></button>
+    </div>
+
+    <div class="pricing-grid reveal">
+      <!-- Base price -->
+      <div class="price-box">
+        <div class="price-box-lbl">قیمت پایه</div>
+        <div class="price-big free" id="priceMain">رایگان</div>
+        <div class="price-pm" id="pricePM">۷ روز تست کامل بدون محدودیت</div>
+        <div class="price-save" id="priceSave" style="display:none"></div>
+        <div class="price-div"></div>
+        <div class="price-perk"><span class="pi">✅</span> همه امکانات پلتفرم فعال</div>
+        <div class="price-perk"><span class="pi">✅</span> تحویل خودکار اکانت VPN</div>
+        <div class="price-perk" id="pkNoBrand" style="display:none"><span class="pi">✅</span> بدون واترمارک «قدرت گرفته از...»</div>
+        <div class="price-perk" id="pkNoAds" style="display:none"><span class="pi">✅</span> بدون نمایش تبلیغات در ربات</div>
+        <div class="price-perk dim" id="pkHasBrand"><span class="pi">⚠️</span> دارای واترمارک «قدرت گرفته از...»</div>
+        <div class="price-perk dim" id="pkHasAds"><span class="pi">⚠️</span> تبلیغات در ربات نمایش داده می‌شود</div>
+      </div>
+
+      <!-- Addons -->
+      <div class="addons-box">
+        <div class="addons-head">
+          <div class="addons-h">افزودنی‌های اختیاری</div>
+          <div class="addons-s">انتخاب کن، قیمت نهایی آنی محاسبه می‌شه</div>
+        </div>
+
+        <div class="addon" data-addon="customization" data-pct="50" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="addon-chk">
+            <svg class="addon-svg" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="addon-body">
+            <div class="addon-n">🎨 شخصی‌سازی پیشرفته</div>
+            <div class="addon-d">لوگو، پیام خوشامدگویی، متن اعلان‌ها، ظاهر ربات</div>
+          </div>
+          <div class="addon-tag">+۵۰٪</div>
+        </div>
+
+        <div class="addon" data-addon="miniapp" data-pct="20" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="addon-chk">
+            <svg class="addon-svg" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="addon-body">
+            <div class="addon-n">📱 مینی‌اپ تلگرام</div>
+            <div class="addon-d">رابط وب اختصاصی داخل تلگرام برای خرید آسان‌تر</div>
+          </div>
+          <div class="addon-tag">+۲۰٪</div>
+        </div>
+
+        <div class="addon" data-addon="agency" data-pct="50" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="addon-chk">
+            <svg class="addon-svg" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="addon-body">
+            <div class="addon-n">🏢 پنل نمایندگی حرفه‌ای</div>
+            <div class="addon-d">مدیریت زیرفروشنده، کمیسیون خودکار، داشبورد نمایندگان</div>
+          </div>
+          <div class="addon-tag">+۵۰٪</div>
+        </div>
+
+        <div class="total-row">
+          <div>
+            <div class="total-lbl">قیمت نهایی اشتراک</div>
+            <div class="total-val" id="totalVal">رایگان</div>
+          </div>
+          <a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" class="btn-start">شروع کن ←</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────── -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner container">
+    <div class="section-eyebrow reveal">سوالات متداول</div>
+    <h2 class="section-h reveal d1">سوالی داری؟ <em>اینجا جواب داریم</em></h2>
+
+    <div class="faq-list" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-q">برای راه‌اندازی نیاز به سرور دارم؟<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">خیر. BotEngine یه سرویس ابری آماده‌ست. فقط به پنل VPN خودت نیاز داری. زیرساخت، دیتابیس و بات رو ما نگه می‌داریم. برای شروع کافیه <a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" style="color:var(--blue-xl)">@Botengin_bot</a> رو استارت بزنی.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q">چند پنل VPN می‌تونم وصل کنم؟<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">تعداد پنل‌ها نامحدوده. می‌تونی چند پنل از انواع مختلف (Marzban، 3X-UI، WireGuard، Hiddify، PasarGuard) رو به یه بات وصل کنی. سیستم بار رو بین پنل‌ها پخش می‌کنه و در صورت خرابی به پنل بعدی سوئیچ می‌کنه.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q">کاربرا چطور پرداخت می‌کنن؟<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">کاربر داخل همون ربات تلگرام روش پرداخت دلخواهش رو انتخاب می‌کنه — کارت به کارت، کریپتو، نوین‌پال، زرین‌پال یا ترونادو. بعد از تأیید، اکانت بلافاصله تحویل داده می‌شه.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q">فرق واترمارک «قدرت گرفته از...» با پلن‌های بلندمدت چیه؟<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">در پلن‌های کوتاه‌مدت (۷ روزه، ۱ ماهه، ۳ ماهه) یه پیام کوچک «قدرت گرفته از BotEngine» در ربات نمایش داده می‌شه. در پلن‌های ۶ ماهه و سالانه این واترمارک حذف می‌شه و ربات کاملاً با برند خودت کار می‌کنه.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q">اگه سرور VPNم خراب بشه چی؟<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">سیستم مانیتورینگ هر ۵ دقیقه وضعیت پنل‌هات رو بررسی می‌کنه. اگه پنلی پاسخ نده، بلافاصله از طریق ربات بهت اطلاع می‌ده تا سریع مشکل رو رفع کنی.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q">می‌تونم چند ربات مختلف داشته باشم؟<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">بله، تعداد ربات‌ها نامحدوده. هر ربات تنظیمات، پنل‌ها و درگاه پرداخت مستقل خودش رو داره. می‌تونی چند بازار مختلف با چند ربات مجزا مدیریت کنی. برای راه‌اندازی ربات‌های متعدد با <a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" style="color:var(--blue-xl)">@Botengin_bot</a> مشورت بگیر.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q">پشتیبانی و راهنمایی چطور انجام میشه؟<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">پشتیبانی از طریق <a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" style="color:var(--blue-xl)">@Botengin_bot</a> انجام میشه. همچنین راهنمای راه‌اندازی مرحله‌به‌مرحله رو مستقیم داخل ربات دریافت می‌کنی.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────── -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-h reveal">ربات VPN فروشگاهی‌ات رو<br><em>امروز</em> بساز</h2>
+    <p class="cta-p reveal d1">ثبت‌نام رایگان. راه‌اندازی در ۵ دقیقه. نیازی به کارت اعتباری نیست.</p>
+    <div class="cta-actions reveal d2">
+      <a href="https://t.me/Botengin_bot" target="_blank" rel="noopener" class="btn-main" style="font-size:1rem;padding:14px 30px">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        شروع رایگان در تلگرام
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── Footer ───────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <div class="footer-logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        BotEngine
+      </div>
+      <p class="footer-tag">پلتفرم ساخت ربات VPN فروشگاهی تلگرام.<br>ساده، سریع، حرفه‌ای.</p>
+    </div>
+    <div class="footer-col">
+      <h4>محصول</h4>
+      <ul>
+        <li><a href="#features">امکانات</a></li>
+        <li><a href="#panels">پنل‌های پشتیبانی‌شده</a></li>
+        <li><a href="#pricing">قیمت‌گذاری</a></li>
+        <li><a href="#how">راه‌اندازی</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>پشتیبانی</h4>
+      <ul>
+        <li><a href="#faq">سوالات متداول</a></li>
+        <li><a href="https://t.me/Botengin_bot" target="_blank" rel="noopener">ربات پشتیبانی (@Botengin_bot)</a></li>
+        <li><a href="https://t.me/Botengin_bot" target="_blank" rel="noopener">شروع رایگان</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© ۱۴۰۵ BotEngine — همه حقوق محفوظ است</span>
+    <span>ساخته‌شده برای فروشندگان VPN ایران</span>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+/* Navbar */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 24), {passive:true});
+
+/* Mobile nav */
+const hbg = document.getElementById('hbg');
+const mobNav = document.getElementById('mobNav');
+const mobClose = document.getElementById('mobClose');
+hbg.addEventListener('click', () => mobNav.classList.add('open'));
+mobClose.addEventListener('click', () => mobNav.classList.remove('open'));
+document.querySelectorAll('.mob-lnk').forEach(a => a.addEventListener('click', () => mobNav.classList.remove('open')));
+
+/* Reveal */
+const ro = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in'); ro.unobserve(e.target);} }), {threshold:.1, rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+/* Counters */
+const co = new IntersectionObserver(es => es.forEach(e => {
+  if(!e.isIntersecting) return;
+  const el = e.target;
+  const target = +el.dataset.target;
+  const sfx = el.dataset.sfx || '';
+  const start = performance.now();
+  const run = now => {
+    const p = Math.min((now - start)/2200, 1);
+    const v = Math.round((1 - Math.pow(1-p,3)) * target);
+    el.textContent = v.toLocaleString('fa-IR') + sfx;
+    if(p < 1) requestAnimationFrame(run);
+  };
+  requestAnimationFrame(run);
+  co.unobserve(el);
+}), {threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if(!open) item.classList.add('open');
+  });
+});
+
+/* Smooth anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+/* ── Pricing calculator ─────────────────── */
+const PLANS = {
+  trial: {price:0, pm:null, save:null, noBrand:false, noAds:false, trial:true},
+  '1m': {price:9,  pm:9,    save:null, noBrand:false, noAds:false},
+  '3m': {price:25, pm:8.33, save:7,    noBrand:false, noAds:false},
+  '6m': {price:35, pm:5.83, save:35,   noBrand:true,  noAds:true},
+  '1y': {price:60, pm:5,    save:44,   noBrand:true,  noAds:true},
+};
+let cur = 'trial';
+const sel = new Set();
+
+function total() {
+  const p = PLANS[cur];
+  if(p.trial) return 0;
+  let pct = 0;
+  sel.forEach(k => { const el = document.querySelector(`.addon[data-addon="${k}"]`); if(el) pct += +el.dataset.pct; });
+  return Math.round(p.price * (1 + pct/100) * 100) / 100;
+}
+
+function render() {
+  const p = PLANS[cur];
+  const pm = document.getElementById('priceMain');
+  const ppm = document.getElementById('pricePM');
+  const ps = document.getElementById('priceSave');
+  const tv = document.getElementById('totalVal');
+
+  if(p.trial) {
+    pm.textContent = 'رایگان'; pm.className = 'price-big free';
+    ppm.textContent = '۷ روز تست کامل بدون محدودیت';
+    ps.style.display = 'none';
+  } else {
+    pm.textContent = `$${p.price}`; pm.className = 'price-big';
+    ppm.textContent = `معادل $${p.pm.toFixed(2)} در ماه`;
+    ps.style.display = p.save ? '' : 'none';
+    if(p.save) ps.textContent = `${p.save}٪ ارزان‌تر از پلن ماهانه`;
+  }
+  document.getElementById('pkNoBrand').style.display  = p.noBrand ? '' : 'none';
+  document.getElementById('pkNoAds').style.display    = p.noAds   ? '' : 'none';
+  document.getElementById('pkHasBrand').style.display = p.noBrand ? 'none' : '';
+  document.getElementById('pkHasAds').style.display   = p.noAds   ? 'none' : '';
+
+  document.querySelectorAll('.addon').forEach(el => {
+    const pct = +el.dataset.pct;
+    const tag = el.querySelector('.addon-tag');
+    tag.textContent = (!p.trial && p.price) ? `+$${Math.round(p.price*pct/100*100)/100}` : `+${pct}٪`;
+  });
+
+  const t = total();
+  tv.textContent = (p.trial || t === 0) ? 'رایگان' : `$${t % 1 === 0 ? t : t.toFixed(2)}`;
+}
+
+document.querySelectorAll('.dur-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.dur-tab').forEach(t => { t.classList.remove('on'); t.setAttribute('aria-selected','false'); });
+    tab.classList.add('on'); tab.setAttribute('aria-selected','true');
+    cur = tab.dataset.plan; render();
+  });
+});
+
+document.querySelectorAll('.addon').forEach(el => {
+  const tog = () => {
+    const k = el.dataset.addon;
+    sel.has(k) ? sel.delete(k) : sel.add(k);
+    el.classList.toggle('on', sel.has(k));
+    el.setAttribute('aria-checked', sel.has(k) ? 'true' : 'false');
+    render();
+  };
+  el.addEventListener('click', tog);
+  el.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tog(); } });
+});
+
+render();
+</script>
+</body>
+</html>
